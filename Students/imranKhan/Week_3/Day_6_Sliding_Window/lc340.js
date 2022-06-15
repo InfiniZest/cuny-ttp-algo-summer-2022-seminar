@@ -7,30 +7,26 @@
 function longest_substring_with_k_distinct(str, k) {
   let windowStart = 0;
   let substring = "";
-  let maxLength = 0;
-  let length = 0;
 
   for (let windowEnd = 0; windowEnd < str.length; windowEnd++)
   {
-    if (length > maxLength)
-      maxLength = length;
+    if (substring.length >= k)
+      return k;
 
-    console.log(typeof(str[windowEnd]));
-    if (!substring.includes('3'))
+    if (windowEnd !== 0 && substring.includes(str[windowEnd]))
     {
       substring += str[windowEnd];
-      length++;
+      substring = substring.substring(windowStart + 1, windowEnd + 1);
+      console.log('After: ', substring);
+      windowStart++;
     } else
     {
-      substring -= str[windowStart];
-      windowStart++;
+      substring += str[windowEnd];
+      console.log(substring);
     }
-
-    if (length > k)
-      length--;
   }
 
-  return maxLength;
+  return length;
 }
 
 console.log(

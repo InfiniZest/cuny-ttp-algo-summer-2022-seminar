@@ -18,7 +18,6 @@ function smallest_subarray_with_given_sum(s, arr) {
       minLength = Math.min(minLength, endWindow - startWindow + 1)
       windowSum -= arr[startWindow]
       startWindow++;
-
      }
   }
 
