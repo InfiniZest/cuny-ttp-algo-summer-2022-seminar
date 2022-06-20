@@ -7,7 +7,40 @@
 // Write a function to return the maximum number of fruits in both baskets.
 
 function fruits_into_baskets(fruits) {
-  // TODO: Write code here
+  let basket1 = fruits[0];
+  let basket2;
+  let numberOfFruits = 1;
+  let maxNumberOfFruits = 0;
+  for (let i = 1, basketsUsed = 1; i < fruits.length; i++)
+  {
+    let fruit = fruits[i]
+    
+    if (basketsUsed < 2)
+    {
+      if (fruit === basket1)
+        numberOfFruits++;
+      else
+      {
+        numberOfFruits++;
+        basket2 = fruit;
+        basketsUsed++;
+      }
+    } else 
+    {
+      if (basket1 === fruit || basket2 === fruit)
+        numberOfFruits++;
+      else
+      {
+        basket1 = basket2;
+        basket2 = fruit;
+        numberOfFruits = 2;
+      } 
+    }
+    if (numberOfFruits > maxNumberOfFruits)
+      maxNumberOfFruits = numberOfFruits;
+  }
+
+  return maxNumberOfFruits;
 }
 
 console.log(
