@@ -17,12 +17,10 @@ function longest_substring_with_k_distinct(str, k) {
     {
       substring += str[windowEnd];
       substring = substring.substring(windowStart + 1, windowEnd + 1);
-      console.log('After: ', substring);
       windowStart++;
     } else
     {
       substring += str[windowEnd];
-      console.log(substring);
     }
   }
 

@@ -41,7 +41,7 @@ function find_maximum_depth(root) {
   let levelSize = 1;
   let maxLevel = 1;
   let q = new Queue();
-  if (root.val !== 0)
+  if (root.val !== null)
   {
     q.enqueue(root);
     while (q.peek())
